@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASDAQ Day Trading Plan Generator</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai@^0.14.0"
+        }
+      }
+    </script>
+    <script type="module" src="index.tsx"></script>
+</head>
+<body>
+    <header>
+        <h1>NASDAQ Day Trading Plan Generator</h1>
+    </header>
+    <main>
+        <section id="input-section" aria-labelledby="input-heading">
+            <h2 id="input-heading">Market Inputs</h2>
+            <form id="trade-plan-form">
+                <div class="form-group">
+                    <label for="nasdaq-price">Current NASDAQ Price</label>
+                    <input type="number" id="nasdaq-price" name="nasdaq-price" placeholder="e.g., 19850.50" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="chart-images">Chart Screenshots (5m, 15m, 1h, 4h)</label>
+                    <input type="file" id="chart-images" name="chart-images" accept="image/*" multiple>
+                </div>
+
+                <div class="form-group">
+                    <label for="chart-notes">Multi-Timeframe Analysis Notes</label>
+                    <textarea id="chart-notes" name="chart-notes" rows="6" placeholder="Describe key levels, supply/demand zones, and ICT concepts observed on the charts."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="economic-events">Key Economic Events Today</label>
+                    <textarea id="economic-events" name="economic-events" rows="4" placeholder="e.g., Fed speakers, GDP, PMI, PCE, NFP..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="sentiment-notes">Overall Sentiment / Bias</label>
+                    <textarea id="sentiment-notes" name="sentiment-notes" rows="3" placeholder="e.g., 'Strong sell bias on hourly/daily due to recent news.'"></textarea>
+                </div>
+
+                <button type="submit" id="generate-btn" aria-label="Generate trading plan">
+                    <span class="btn-text">Generate Plan</span>
+                    <div class="loader" hidden></div>
+                </button>
+            </form>
+        </section>
+
+        <section id="output-section" aria-labelledby="output-heading" aria-live="polite">
+            <h2 id="output-heading">Generated Trading Plan</h2>
+            <div id="output-container">
+                <p>Your generated trading plan will appear here.</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

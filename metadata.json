@@ -1,0 +1,7 @@
+{
+  "name": "NASDAQ Day Trading Plan Generator",
+  "description": "Generates a day trading plan for NASDAQ using market data and AI.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
